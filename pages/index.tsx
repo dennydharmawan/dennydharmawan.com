@@ -6,27 +6,40 @@ import Box from '@mui/material/Box';
 import Link from '../src/Link';
 import ProTip from '../src/ProTip';
 import Copyright from '../src/Copyright';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="md" sx={{ padding: '0' }}>
       <Box
         sx={{
-          my: 4,
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          placeItems: 'center'
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
+        <Box
+          sx={{
+            position: 'relative',
+            width: '100%',
+            height: 'auto',
+            aspectRatio: '500 / 421'
+            // backgroundColor: 'lightblue'
+          }}
+        >
+          <Image
+            layout="fill"
+            width={500}
+            height={421}
+            src="/images/under-construction.png"
+            alt="Under Construction"
+          />
+        </Box>
+        <Box sx={{ padding: '1rem', textAlign: 'center' }}>
+          <h2>
+            We are currently working on this page, please come back again later.
+          </h2>
+        </Box>
       </Box>
     </Container>
   );
