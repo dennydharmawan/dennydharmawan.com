@@ -105,10 +105,12 @@ const Home: NextPage = () => {
             </Drawer>
           </Box>
 
-          <Box id="landingText" sx={{ display: 'grid', placeItems: 'center' }}>
+          <Box
+            id="landingText"
+            sx={{ display: 'grid', placeItems: 'center', padding: '1rem' }}
+          >
             <Box sx={{ textAlign: 'center' }}>
-              <p>Hi, I'm Denny Dharmawan</p>
-              <p>I create beautiful websites</p>
+              <Typography variant="h3">Hi, I'm Denny Dharmawan</Typography>
             </Box>
             <Button variant="contained">Let's talk</Button>
           </Box>
