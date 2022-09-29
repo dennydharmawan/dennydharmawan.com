@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import DownloadIcon from "@mui/icons-material/Download";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,33 +13,44 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import Link from "../components/Link";
 import { UnderConstruction } from "../components/UnderConstruction";
 import Copyright from "../src/Copyright";
-import Link from "../src/Link";
 import ProTip from "../src/ProTip";
 
 import type { NextPage } from 'next';
+
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
+const logoText = 'Denny';
 
 const Home: NextPage = () => {
+  const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // const downloadResumeFile = () => {
+  //   const link = document.createElement('a');
+  //   link.download = `dennydharmawan.pdf`;
+  //   link.href = './dennydharmawan.pdf';
+  //   link.click();
+  // };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        Denny Dharmawan
+        Denny
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {navItems.map((item, index) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item} />
@@ -50,7 +62,14 @@ const Home: NextPage = () => {
   );
 
   return (
-    <Container maxWidth="lg" disableGutters>
+    <Container
+      maxWidth="lg"
+      disableGutters
+      sx={{
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText
+      }}
+    >
       {/* <UnderConstruction></UnderConstruction> */}
 
       <Box
@@ -58,7 +77,15 @@ const Home: NextPage = () => {
         sx={{ display: 'grid', gridTemplateRows: 'auto 1fr auto' }}
       >
         <Box id="HeaderContainer">
-          <AppBar component="nav" position="sticky">
+          <AppBar
+            elevation={0}
+            component="nav"
+            position="sticky"
+            sx={{
+              backgroundColor: theme.palette.secondary.main,
+              color: theme.palette.secondary.contrastText
+            }}
+          >
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -74,13 +101,19 @@ const Home: NextPage = () => {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
               >
-                Denny Dharmawan
+                {logoText}
               </Typography>
               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: '#fff' }}>
-                    {item}
-                  </Button>
+                  <Link // variant=
+                    key={item}
+                    underline="none"
+                    href="/"
+                  >
+                    <Button variant="text" sx={{ color: '#fff' }}>
+                      {item}
+                    </Button>
+                  </Link>
                 ))}
               </Box>
             </Toolbar>
@@ -106,13 +139,46 @@ const Home: NextPage = () => {
           </Box>
 
           <Box
-            id="landingText"
-            sx={{ display: 'grid', placeItems: 'center', padding: '1rem' }}
+            id="landingInformation"
+            sx={{ padding: '1.5rem', maxWidth: '65%' }}
           >
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography variant="h3">Hi, I'm Denny Dharmawan</Typography>
+            <Box sx={{ mb: '2rem' }}>
+              <Typography
+                variant="h3"
+                fontWeight={900}
+                fontSize="clamp(2rem, 5vw, 4rem)"
+              >
+                Hi!, I Am
+              </Typography>
+              <Typography
+                variant="h3"
+                color="primary"
+                fontWeight={900}
+                fontSize="clamp(2rem, 4.8vw, 4rem)"
+                sx={{ mb: '1.5rem' }}
+              >
+                Denny Dharmawan
+              </Typography>
+              <Typography variant="body1" fontWeight={500}>
+                Fullstack Developer who focuses on writing clean, elegant, and
+                efficient code. I enjoy learning about new technologies and have
+                passion for web development.
+              </Typography>
             </Box>
-            <Button variant="contained">Let's talk</Button>
+            <Box sx={{ display: 'flex', gap: '1rem' }}>
+              <Button variant="contained" sx={{ textTransform: 'none' }}>
+                Let's Talk
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<DownloadIcon />}
+                href="dennydharmawan.pdf"
+                target="_blank"
+                sx={{ textTransform: 'none' }}
+              >
+                Get Resume
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>

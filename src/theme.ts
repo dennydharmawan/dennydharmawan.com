@@ -1,5 +1,5 @@
 import { red } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, experimental_sx as sx } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
@@ -8,13 +8,12 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#635BFF'
+      main: '#ffb703',
+      contrastText: '#000'
     },
     secondary: {
-      main: '#7a73ff'
-    },
-    error: {
-      main: red.A400
+      main: '#121528',
+      contrastText: '#fff'
     }
   },
   components: {
@@ -29,6 +28,10 @@ const theme = createTheme({
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
             U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
             U+FEFF, U+FFFD;
+        }
+
+        .MuiButtonBase-root.MuiButton-root {
+          font-weight: 700
         }
       `
     }
