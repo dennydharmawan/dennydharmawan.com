@@ -1,10 +1,13 @@
+import { differenceInYears } from "date-fns";
 import * as React from "react";
 
 import DownloadIcon from "@mui/icons-material/Download";
+import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { grey } from "@mui/material/colors";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -17,12 +20,16 @@ import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import GithubIcon from "../components/icons/GithubIcon";
+import LinkedInIcon from "../components/icons/LinkedInIcon";
 import Link from "../components/Link";
 import { UnderConstruction } from "../components/UnderConstruction";
 import Copyright from "../src/Copyright";
 import ProTip from "../src/ProTip";
 
 import type { NextPage } from 'next';
+// TODO show contacts under let's talk
+// Fullstack developer
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -105,12 +112,13 @@ const Home: NextPage = () => {
               </Typography>
               <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 {navItems.map((item) => (
-                  <Link // variant=
-                    key={item}
-                    underline="none"
-                    href="/"
-                  >
-                    <Button variant="text" sx={{ color: '#fff' }}>
+                  <Link key={item} underline="none" href="/">
+                    <Button
+                      variant="text"
+                      sx={{
+                        color: grey[200]
+                      }}
+                    >
                       {item}
                     </Button>
                   </Link>
@@ -140,47 +148,110 @@ const Home: NextPage = () => {
 
           <Box
             id="landingInformation"
-            sx={{ padding: '1.5rem', maxWidth: '65%' }}
+            sx={{
+              display: 'grid',
+              padding: '1.5rem',
+              gridTemplateColumns: '4fr 2fr 48px'
+            }}
           >
-            <Box sx={{ mb: '2rem' }}>
+            <Box>
               <Typography
-                variant="h3"
+                component="h3"
+                variant="caption"
                 fontWeight={900}
-                fontSize="clamp(2rem, 5vw, 4rem)"
+                lineHeight={0.8}
               >
                 Hi!, I Am
               </Typography>
               <Typography
-                variant="h3"
+                component="h3"
+                variant="caption"
                 color="primary"
                 fontWeight={900}
-                fontSize="clamp(2rem, 4.8vw, 4rem)"
-                sx={{ mb: '1.5rem' }}
+                lineHeight={1.2}
+                sx={{ mb: '0.5rem' }}
               >
                 Denny Dharmawan
               </Typography>
-              <Typography variant="body1" fontWeight={500}>
-                Fullstack Developer who focuses on writing clean, elegant, and
-                efficient code. I enjoy learning about new technologies and have
-                passion for web development.
-              </Typography>
-            </Box>
-            <Box sx={{ display: 'flex', gap: '1rem' }}>
-              <Button variant="contained" sx={{ textTransform: 'none' }}>
-                Let's Talk
-              </Button>
-              <Button
-                variant="outlined"
-                startIcon={<DownloadIcon />}
-                href="dennydharmawan.pdf"
-                target="_blank"
-                sx={{ textTransform: 'none' }}
+              <Typography
+                variant="body1"
+                fontWeight={500}
+                sx={{
+                  maxWidth: '50ch',
+                  mb: '1.8rem'
+                }}
               >
-                Get Resume
-              </Button>
+                Fullstack developer with over{' '}
+                {differenceInYears(new Date(), new Date(2019, 12, 1))} years
+                experience developing web application. I enjoy learning about
+                new technologies and have passion for web development.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: '1rem' }}>
+                <Button
+                  href="mailto:hey@dennydharmawan.com"
+                  variant="contained"
+                  sx={{ textTransform: 'none' }}
+                  endIcon={<MailIcon />}
+                >
+                  Let's Talk
+                </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<DownloadIcon />}
+                  href="dennydharmawan.pdf"
+                  target="_blank"
+                  sx={{ textTransform: 'none' }}
+                >
+                  Get Resume
+                </Button>
+              </Box>
+            </Box>
+            <Box id="headerIllustration"></Box>
+            <Box id="headerSocials" sx={{ color: theme.palette.primary.main }}>
+              <Box
+                sx={{
+                  transformOrigin: 'top left',
+                  transform: 'translateX(100%) rotate(90deg) translateY(50%)',
+                  width: '100%',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                Follow me on
+              </Box>
+              <Box sx={{ marginTop: '6rem' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Box
+                    sx={{
+                      borderLeft: `0.1rem solid ${theme.palette.primary.main}`,
+                      height: '120px',
+                      borderRadius: '4px',
+                      transform: 'translateX(-50%)'
+                    }}
+                  ></Box>
+                </Box>
+                <IconButton
+                  size="large"
+                  href="https://github.com/dennydharmawan/"
+                  target="_blank"
+                  sx={{ paddingTop: '1.5rem', color: 'inherit' }}
+                >
+                  <GithubIcon />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  href="https://www.linkedin.com/in/denny-dharmawan-0592a375/"
+                  target="_blank"
+                  sx={{ color: 'inherit' }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+              </Box>
             </Box>
           </Box>
         </Box>
+      </Box>
+      <Box id="footer">
+        <Copyright />
       </Box>
     </Container>
   );

@@ -1,10 +1,27 @@
-import { red } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import { createTheme, experimental_sx as sx } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
   typography: {
-    fontFamily: 'Inter, Arial'
+    fontFamily: 'Inter, Arial', //https://meowni.ca/font-style-matcher/, https://screenspan.net/fallback
+    h1: {},
+    h2: {},
+    h3: {
+      fontSize: 'clamp(20px, calc(0.8vw + 1rem), 42px)'
+    },
+    h4: {},
+    h5: {},
+    h6: {},
+    subtitle1: {},
+    subtitle2: {},
+    body1: {
+      color: grey[200]
+    },
+    body2: {},
+    button: {},
+    caption: { fontSize: 'clamp(2rem, 4.5vw, 4rem)' },
+    overline: {}
   },
   palette: {
     primary: {
@@ -30,8 +47,18 @@ const theme = createTheme({
             U+FEFF, U+FFFD;
         }
 
+        @font-face {
+          font-family: 'Adjusted Arial Fallback';
+          src: local(Arial);
+          size-adjust: 107%;
+          ascent-override: normal;
+          descent-override: normal;
+          line-gap-override: normal;
+        }
+
         .MuiButtonBase-root.MuiButton-root {
-          font-weight: 700
+          font-weight: 700;
+          border-radius: 24px
         }
       `
     }

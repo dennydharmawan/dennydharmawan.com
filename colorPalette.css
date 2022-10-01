@@ -6,10 +6,76 @@
     --color4: #ffb703,
     /* primary */
     --color5: #fb8500,
-    --color6: #121528
+    --color6: #121528,
+
+    --spacing-100: 0.25rem,
+    --spacing-200: 0.5rem,
+    --spacing-300: 0.75rem,
+    --spacing-400: 1rem,
+    --spacing-500: 1.5rem,
+    --spacing-600: 2rem,
+    --spacing-700: 3rem,
+    --spacing-800: 4rem,
+    --spacing-900: 6rem,
+    --spacing-1000: 8rem
 }
 
 
 /* https://www.uplabs.com/posts/portfolio-landing-page-design-23efd571-2072-4a4a-b6e6-d0ebb65b5e96 */
+/* https://www.behance.net/gallery/139668309/Portfolio-Website-Design?tracking_source=search_projects%7Cportfolio%20landing%20page */
 
 /* https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=023047&secondary.color=ffb803 */
+
+
+body {
+  font-size: clamp(14px, calc(.45vw + 1rem), 18px);
+}
+
+h1 {
+  font-size: clamp(36px, calc(2vw + 1rem), 64px);
+}
+
+h2 {
+  font-size: clamp(24px, calc(1.66vw + 1rem), 50px);
+}
+
+h3 {
+  font-size: clamp(20px, calc(0.8vw + 1rem), 42px);
+}
+
+h4 {
+  font-size: clamp(18px, calc(0.8vw + 1rem), 36px);
+}
+
+h5 {
+  font-size: clamp(17px, calc(0.5vw + 1rem), 24px);
+}
+
+h6 {
+  font-size: clamp(16px, calc(0.4vw + 1rem), 20px);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url(/fonts/inter-var-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Adjusted Arial Fallback';
+  src: local(Arial);
+  size-adjust: 107%;
+  ascent-override: normal;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+
+.MuiButtonBase-root.MuiButton-root {
+  font-weight: 700;
+  border-radius: 24px
+}
