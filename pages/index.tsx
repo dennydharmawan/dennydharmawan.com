@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import MuiLink from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -28,8 +29,8 @@ import Copyright from "../src/Copyright";
 import ProTip from "../src/ProTip";
 
 import type { NextPage } from 'next';
-// TODO show contacts under let's talk
-// Fullstack developer
+
+// TODO: Get better tagline -> convert Logo into tagline "built websites with denny-"
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -206,14 +207,15 @@ const Home: NextPage = () => {
                 </Button>
               </Box>
             </Box>
-            <Box id="headerIllustration"></Box>
+            <Box id="headerIllustration" sx={{ height: '480px' }}></Box>
             <Box id="headerSocials" sx={{ color: theme.palette.primary.main }}>
               <Box
                 sx={{
                   transformOrigin: 'top left',
                   transform: 'translateX(100%) rotate(90deg) translateY(50%)',
                   width: '100%',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  fontWeight: '500'
                 }}
               >
                 Follow me on
@@ -223,7 +225,7 @@ const Home: NextPage = () => {
                   <Box
                     sx={{
                       borderLeft: `0.1rem solid ${theme.palette.primary.main}`,
-                      height: '120px',
+                      height: '40px',
                       borderRadius: '4px',
                       transform: 'translateX(-50%)'
                     }}
@@ -233,7 +235,7 @@ const Home: NextPage = () => {
                   size="large"
                   href="https://github.com/dennydharmawan/"
                   target="_blank"
-                  sx={{ paddingTop: '1.5rem', color: 'inherit' }}
+                  sx={{ paddingTop: '1.5rem', color: '#fff' }}
                 >
                   <GithubIcon />
                 </IconButton>
@@ -241,7 +243,7 @@ const Home: NextPage = () => {
                   size="large"
                   href="https://www.linkedin.com/in/denny-dharmawan-0592a375/"
                   target="_blank"
-                  sx={{ color: 'inherit' }}
+                  sx={{ color: '#fff' }}
                 >
                   <LinkedInIcon />
                 </IconButton>
@@ -250,8 +252,48 @@ const Home: NextPage = () => {
           </Box>
         </Box>
       </Box>
-      <Box id="footer">
-        <Copyright />
+      <Box
+        id="footer--socials"
+        sx={{ backgroundColor: '#3A3B3F', paddingBlock: '3rem' }}
+      >
+        <Box
+          sx={{
+            display: 'grid',
+            placeItems: 'center'
+          }}
+        >
+          <Typography variant="h3" fontWeight="700">
+            Contact Me
+          </Typography>
+          <Typography variant="body1">hey@dennydharmawan.com</Typography>
+          <Box sx={{ display: 'flex', paddingTop: '1rem' }}>
+            <IconButton
+              size="large"
+              href="https://github.com/dennydharmawan/"
+              target="_blank"
+              sx={{ color: '#fff' }}
+            >
+              <GithubIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              href="https://www.linkedin.com/in/denny-dharmawan-0592a375/"
+              target="_blank"
+              sx={{ color: '#fff' }}
+            >
+              <LinkedInIcon />
+            </IconButton>
+          </Box>
+        </Box>
+      </Box>
+      <Box id="footer-copyright" sx={{ paddingBlock: '1rem' }}>
+        <Typography variant="body2" align="center">
+          {'Copyright © '}
+          <Link color="inherit" href="https://dennydharmawan.com/">
+            Denny Dharmawan
+          </Link>{' '}
+          {new Date().getFullYear()}.
+        </Typography>
       </Box>
     </Container>
   );
