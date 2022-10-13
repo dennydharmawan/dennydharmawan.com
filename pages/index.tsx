@@ -71,20 +71,24 @@ const Home: NextPage = () => {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="xl"
       disableGutters
       sx={{
         backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.secondary.contrastText
+        color: theme.palette.secondary.contrastText,
+        display: 'flex',
+        flexFlow: 'column',
+        minHeight: '100vh'
       }}
     >
-      {/* <UnderConstruction></UnderConstruction> */}
-
       <Box
-        id="PageContainer"
-        sx={{ display: 'grid', gridTemplateRows: 'auto 1fr auto' }}
+        className="header"
+        sx={{
+          display: 'grid',
+          gridTemplateRows: 'auto 1fr auto'
+        }}
       >
-        <Box id="HeaderContainer">
+        <Box id="header__container">
           <AppBar
             elevation={0}
             component="nav"
@@ -148,10 +152,10 @@ const Home: NextPage = () => {
           </Box>
 
           <Box
-            id="landingInformation"
+            className="header__hero-left"
             sx={{
               display: 'grid',
-              padding: '1.5rem',
+              padding: '2.5rem',
               gridTemplateColumns: '4fr 2fr 48px'
             }}
           >
@@ -207,8 +211,11 @@ const Home: NextPage = () => {
                 </Button>
               </Box>
             </Box>
-            <Box id="headerIllustration" sx={{ height: '480px' }}></Box>
-            <Box id="headerSocials" sx={{ color: theme.palette.primary.main }}>
+            <Box className="header__hero-right"></Box>
+            <Box
+              className="header__socials"
+              sx={{ color: theme.palette.primary.main }}
+            >
               <Box
                 sx={{
                   transformOrigin: 'top left',
@@ -253,10 +260,18 @@ const Home: NextPage = () => {
         </Box>
       </Box>
       <Box
-        id="footer--socials"
+        className="main"
+        sx={{
+          flex: '1 1 auto',
+          backgroundColor: '#434548'
+        }}
+      ></Box>
+      <Box
+        className="footer__socials"
         sx={{ backgroundColor: '#3A3B3F', paddingBlock: '3rem' }}
       >
         <Box
+          className="footer__socials"
           sx={{
             display: 'grid',
             placeItems: 'center'
@@ -286,7 +301,7 @@ const Home: NextPage = () => {
           </Box>
         </Box>
       </Box>
-      <Box id="footer-copyright" sx={{ paddingBlock: '1rem' }}>
+      <Box id="footer__copyright" sx={{ paddingBlock: '1rem' }}>
         <Typography variant="body2" align="center">
           {'Copyright © '}
           <Link color="inherit" href="https://dennydharmawan.com/">

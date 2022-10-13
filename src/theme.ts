@@ -60,6 +60,8 @@ const theme = createTheme({
           font-weight: 700;
           border-radius: 24px
         }
+
+        body {background-color: #97989a}
       `
     }
   }
