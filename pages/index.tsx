@@ -21,6 +21,8 @@ import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import ArrowIcon from "../components/icons/ArrowIcon";
+import BackToTopIcon from "../components/icons/BackToTopIcon";
 import GithubIcon from "../components/icons/GithubIcon";
 import LinkedInIcon from "../components/icons/LinkedInIcon";
 import Link from "../components/Link";
@@ -31,6 +33,9 @@ import ProTip from "../src/ProTip";
 import type { NextPage } from 'next';
 
 // TODO: Get better tagline -> convert Logo into tagline "built websites with denny-"
+
+// Hero, My Projects, My Skills?, My Education and experience, contact me, footer
+// https://codesandbox.io/s/framer-motion-smooth-scroll-v2-54cz4?file=/src/SmoothScroll.component.jsx
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -196,9 +201,9 @@ const Home: NextPage = () => {
                   href="mailto:hey@dennydharmawan.com"
                   variant="contained"
                   sx={{ textTransform: 'none' }}
-                  endIcon={<MailIcon />}
+                  endIcon={<ArrowIcon />}
                 >
-                  Let's Talk
+                  See My Projects
                 </Button>
                 <Button
                   variant="outlined"
@@ -263,24 +268,53 @@ const Home: NextPage = () => {
         className="main"
         sx={{
           flex: '1 1 auto',
-          backgroundColor: '#434548'
+          backgroundColor: '#434548',
+          padding: '2.5rem'
         }}
-      ></Box>
-      <Box
-        className="footer__socials"
-        sx={{ backgroundColor: '#3A3B3F', paddingBlock: '3rem' }}
       >
+        <Typography
+          variant="h3"
+          fontWeight="700"
+          sx={{ marginBottom: '0.2rem' }}
+        >
+          My Projects
+        </Typography>
+        <Typography variant="h6" sx={{ color: grey[200] }}>
+          Some Things I’ve Built
+        </Typography>
+      </Box>
+      <Box
+        className="footer"
+        sx={{ backgroundColor: '#3A3B3F', position: 'relative' }}
+      >
+        <IconButton
+          sx={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            transform: 'translateX(-80%) translateY(-35%)',
+            color: '#fff !important',
+            border: '4px solid grey',
+            borderRadius: 1,
+            backgroundColor: '#202224'
+          }}
+        >
+          <BackToTopIcon />
+        </IconButton>
         <Box
           className="footer__socials"
           sx={{
             display: 'grid',
-            placeItems: 'center'
+            placeItems: 'center',
+            padding: '3rem'
           }}
         >
           <Typography variant="h3" fontWeight="700">
             Contact Me
           </Typography>
-          <Typography variant="body1">hey@dennydharmawan.com</Typography>
+          <Typography sx={{ marginTop: '0.6rem' }} variant="body1">
+            hey@dennydharmawan.com
+          </Typography>
           <Box sx={{ display: 'flex', paddingTop: '1rem' }}>
             <IconButton
               size="large"
