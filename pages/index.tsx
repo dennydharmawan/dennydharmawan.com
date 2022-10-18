@@ -21,6 +21,7 @@ import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import ArrowDownIcon from "../components/icons/ArrowDownIcon";
 import ArrowIcon from "../components/icons/ArrowIcon";
 import BackToTopIcon from "../components/icons/BackToTopIcon";
 import GithubIcon from "../components/icons/GithubIcon";
@@ -221,7 +222,7 @@ const Home: NextPage = () => {
               className="header__socials"
               sx={{ color: theme.palette.primary.main }}
             >
-              <Box
+              {/* <Box
                 sx={{
                   transformOrigin: 'top left',
                   transform: 'translateX(100%) rotate(90deg) translateY(50%)',
@@ -231,15 +232,23 @@ const Home: NextPage = () => {
                 }}
               >
                 Follow me on
+              </Box> */}
+              <Box
+                sx={{
+                  writingMode: 'vertical-lr',
+                  marginBlock: 'auto'
+                }}
+              >
+                Follow me on:
               </Box>
-              <Box sx={{ marginTop: '6rem' }}>
+              <Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Box
                     sx={{
-                      borderLeft: `0.1rem solid ${theme.palette.primary.main}`,
+                      borderLeft: `2px solid currentColor`,
                       height: '40px',
-                      borderRadius: '4px',
-                      transform: 'translateX(-50%)'
+                      marginBlock: '1.5rem 0.5rem',
+                      marginInline: 'auto'
                     }}
                   ></Box>
                 </Box>
@@ -247,7 +256,7 @@ const Home: NextPage = () => {
                   size="large"
                   href="https://github.com/dennydharmawan/"
                   target="_blank"
-                  sx={{ paddingTop: '1.5rem', color: '#fff' }}
+                  sx={{ color: '#fff' }}
                 >
                   <GithubIcon />
                 </IconButton>
@@ -259,6 +268,33 @@ const Home: NextPage = () => {
                 >
                   <LinkedInIcon />
                 </IconButton>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column'
+                  }}
+                >
+                  <Box
+                    sx={{
+                      borderLeft: `2px solid currentColor`,
+                      height: '40px',
+                      marginBlock: '0.5rem 0',
+                      marginInline: 'auto'
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      width: '16px',
+                      height: '16px',
+                      borderTop: '2px solid currentColor',
+                      borderLeft: '2px solid currentColor',
+                      transform:
+                        'rotate(225deg) translateX(75%) translateY(75%)',
+                      margin: 'auto'
+                    }}
+                  ></Box>
+                </Box>
               </Box>
             </Box>
           </Box>
