@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
 
+          {/* Created with https://metatags.io/ */}
           {/* <!-- Primary Meta Tags --> */}
           <title>Denny Dharmawan — Fullstack Developer</title>
           <meta name="title" content="Denny Dharmawan — Fullstack Developer" />
@@ -25,7 +26,7 @@ export default class MyDocument extends Document {
 
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://metatags.io/" />
+          <meta property="og:url" content="https://dennydharmawan.com/" />
           <meta
             property="og:title"
             content="Denny Dharmawan — Fullstack Developer"
@@ -39,7 +40,7 @@ export default class MyDocument extends Document {
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta property="twitter:url" content="https://dennydharmawan.com/" />
           <meta
             property="twitter:title"
             content="Denny Dharmawan — Fullstack Developer"
