@@ -1,86 +1,71 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import React from "react";
 
-const Home: NextPage = () => {
+import ArrowDownIcon from "../assets/arrowDown.svg";
+import EmailIcon from "../assets/email.svg";
+import GithubIcon from "../assets/github.svg";
+import LinkedinIcon from "../assets/linkedin.svg";
+import MenuIcon from "../assets/menu.svg";
+import UnderlineDoodle from "../assets/underline.svg";
+import Container from "../components/container";
+import FloatingButton from "../components/FloatingButton";
+import IconButton from "../components/iconButton";
+
+//https://stackoverflow.com/questions/19484707/how-can-i-make-an-svg-scale-with-its-parent-container
+
+export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="relative flex flex-col min-h-screen font-inter">
+      <Container className="flex shadow-md outline outline-1 outline-gray-200">
+        <h1 className="font-bold">Denny Dharmawan</h1>
+        <MenuIcon className="ml-auto text-gray-500" />
+      </Container>
+      <Container className="flex flex-col gap-12 my-12">
+        <div className="flex flex-col text-5xl font-bold text-center">
+          <p>Connecting Your Business to The</p>
+          <div className="self-start mx-auto text-primary-pacific-600">
+            Digital World.
+            <div className="w-full">
+              <UnderlineDoodle />
+            </div>
+          </div>
+        </div>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
+        <p className="text-base text-gray-800">
+          Hi, my name’s Denny Dharmawan. A software engineer with 5+ years
+          experience in developing and maintaining websites. I possess a strong
+          orientation towards personal development, enjoy learning about new
+          technologies, and have passion for web development.
         </p>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
+        <button className="flex items-center self-start gap-3 py-4 font-semibold transition-all rounded-lg px-7 bg-primary-blurple-500 text-gray-50 hover:bg-primary-blurple-600 outline-1 outline outline-primary-blurple-700 shadow-solid">
+          <ArrowDownIcon /> See My Projects
+        </button>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className="flex flex-wrap items-center">
+          <p className="mr-5 text-base font-semibold">Also find me on</p>
+          <div className="flex items-center gap-1 mt-1">
+            <div className="w-4 h-1 mr-1 bg-orange-500"></div>
+            <IconButton
+              className="w-12 h-12"
+              href="https://github.com/dennydharmawan"
+            >
+              <GithubIcon />
+            </IconButton>
+            <IconButton
+              className="w-12 h-12"
+              href="https://linkedin.com/ddharmawan"
+            >
+              <LinkedinIcon />
+            </IconButton>
+            <IconButton
+              className="w-12 h-12"
+              href="mailto:hey@dennydharmawan.com"
+            >
+              <EmailIcon />
+            </IconButton>
+          </div>
         </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+      </Container>
     </div>
-  )
+  );
 }
-
-export default Home
