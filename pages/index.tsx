@@ -24,14 +24,14 @@ export default function Home() {
       className="relative flex flex-col min-h-screen font-inter"
     >
       <header>
-        <div className="flex shadow-md outline outline-1 outline-gray-200">
+        <Container className="flex items-center py-0 shadow-md outline outline-1 outline-gray-200">
           <h1 className="font-bold">Denny Dharmawan</h1>
-          <nav className="ml-auto">
+          <nav className="ml-auto overflow-hidden translate-x-3 h-14">
             <button aria-controls="primary-navigation" aria-expanded="false">
               <svg
                 className={isMenuOpen ? 'ham ham6 active' : 'ham ham6'}
                 viewBox="0 0 100 100"
-                width="60"
+                width="56"
                 onClick={() => setMenuOpen(!isMenuOpen)}
               >
                 <path
@@ -47,12 +47,11 @@ export default function Home() {
                   d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272"
                 />
               </svg>
-              <span className="sr-only">menu</span>
+              {/* <span className="sr-only">menu</span> */}
             </button>
-
-            <ul id="primary-navigation"></ul>
           </nav>
-        </div>
+          <ul id="primary-navigation"></ul>
+        </Container>
       </header>
 
       <Container className="flex flex-col gap-12 my-12">
